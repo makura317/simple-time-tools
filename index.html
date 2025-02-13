@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>シンプルタイムツール</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- タブナビゲーション -->
+        <div class="tab-container">
+            <button class="tab-button active" data-tab="stopwatch">ストップウォッチ</button>
+            <button class="tab-button" data-tab="timer">タイマー</button>
+            <button class="tab-button" data-tab="clock">時計</button>
+        </div>
+
+        <!-- ストップウォッチセクション -->
+        <div class="tab-content active" id="stopwatch">
+            <div class="display">00:00:00.000</div>
+            <div class="controls">
+                <button id="startStopwatch" class="toggle-button">スタート</button>
+                <button id="resetStopwatch">リセット</button>
+            </div>
+        </div>
+
+        <!-- タイマーセクション -->
+        <div class="tab-content" id="timer">
+            <div class="timer-input-container">
+                <!-- 時 -->
+                <div class="time-unit">
+                    <button class="time-control-btn up">▲</button>
+                    <input type="number" class="time-input" id="hoursInput" min="0" max="99" value="00">
+                    <button class="time-control-btn down">▼</button>
+                </div>
+                <span class="time-separator">:</span>
+                <!-- 分 -->
+                <div class="time-unit">
+                    <button class="time-control-btn up">▲</button>
+                    <input type="number" class="time-input" id="minutesInput" min="0" max="59" value="00">
+                    <button class="time-control-btn down">▼</button>
+                </div>
+                <span class="time-separator">:</span>
+                <!-- 秒 -->
+                <div class="time-unit">
+                    <button class="time-control-btn up">▲</button>
+                    <input type="number" class="time-input" id="secondsInput" min="0" max="59" value="00">
+                    <button class="time-control-btn down">▼</button>
+                </div>
+            </div>
+            
+            <!-- プリセットボタン -->
+            <div class="presets">
+                <button class="preset-btn" data-time="60">+1分</button>
+                <button class="preset-btn" data-time="180">+3分</button>
+                <button class="preset-btn" data-time="600">+10分</button>
+            </div>
+            
+            <div class="controls">
+                <button id="startTimer" class="toggle-button">スタート</button>
+                <button id="resetTimer">リセット</button>
+            </div>
+            
+            <div class="sound-control">
+                <label>
+                    <input type="checkbox" id="soundToggle" checked>
+                    通知音
+                </label>
+            </div>
+        </div>
+
+        <!-- デジタル時計セクション -->
+        <div class="tab-content" id="clock">
+            <div class="date-display"></div>
+            <div class="time-display"></div>
+            <div class="format-toggle">
+                <label>
+                    <input type="checkbox" id="timeFormatToggle">
+                    24時間表示
+                </label>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
